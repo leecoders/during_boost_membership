@@ -134,3 +134,6 @@ document.querySelector("#interests").addEventListener("keydown", e => {
 - 전파 : 부모 -> 자식
 - 버블링 : 자식 -> 부모
 - 모달를 목표로 이벤트를 발생시키면 부모 노드에서도 이벤트가 발생한다..
+  - body에 `overflow: hidden`으로 해결할 수 있다. (그래도 뭔가 찝찝함..)
+
+### 요소 가운데 정렬 하기 : `position: absolute` -> `left: 50%`, `margin-left: <요소 절반 크기>`
