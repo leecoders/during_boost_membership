@@ -147,3 +147,30 @@
   - BLOB: 입력된 그대로 저장, 바이너리 파일 등
 
 ### express.json() http로 json string 받으면 알아서 타입별로 파싱해준다. 좋다.
+
+### SQLite의 select 동작을 위한 all() 함수는 Promise를 반환한다.
+
+- async/await, then, resolve 등의 조합으로 Promise 패턴으로 비동기 처리를 고민해보자.
+- 지금은 better-sqlite3를 통해 구현한 상태
+  - 비동기 고민
+
+### 서버가 꺼졌다 켜졌을 때 세션을 유지해야 하는가에 대한 고민이 필요하다
+
+- 세션을 DB 또는 express-session의 세션을 파일로 저장하는 옵션을 통해 세션을 유지시킬 수 있다.
+- 굳이 저장 해야되는가?
+  - 만약 서버가 다운되어 세션이 모두 사라진다면 모든 사용자가 로그아웃되는 문제가 있다.
+
+### 400에러 (Bad request)
+
+- 전송하는 request에 문제가 있을 때 발생
+- 데이터 타입을 확인할 것
+
+### res.cookie()로 쿠키를 저장할 때 이미 존재하는 key에 value를 저장하면 덮어 씌워진다.
+
+- 없으면 새로 만들어짐
+- 지정된 expires 이후에 사라짐
+
+### HttpOnly와 document.cookie
+
+- document.cookie로 cookie를 확인할 수 있다.
+- 하지만 HttpOnly 속성이 걸려있으면 쿠키를 중간에 가로채는 것을 막기 위해 서버와의 http 통신으로만 확인 가능하다.
