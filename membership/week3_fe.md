@@ -155,3 +155,9 @@ setImage = () => {
 - Readable code : 가독성을 높이기 위한 주석은 좋지 않다. 알고리즘이 복잡하다면 주석이 필요하다.
 - Testable code
 - Maintainable code
+
+### front-end와 back-end 나누어 관리하기
+
+- 프론트엔드의 정적 파일들을 netlify, S3 등의 서비스를 활용하여 서버리스로 배포할 수 있다.
+- 서버와 통신이 필요한 부분에는 fetch를 활용하여 요청을 보내면 되고, 백엔드를 서버에 배포하면 따로 관리할 수 있다.
+- netlify는 Github에 연동하여 Push 될 때마다 자동으로 빌드, 배포 해주는 서비스!
