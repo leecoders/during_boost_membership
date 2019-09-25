@@ -1,1 +1,2 @@
-[링크](https://github.com/leecoders/HTML_CSS_STUDY)
+# [HTML & CSS repo](https://github.com/leecoders/HTML_CSS_STUDY)
+
