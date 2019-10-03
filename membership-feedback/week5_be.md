@@ -81,3 +81,17 @@ router.use("/asd", (req, res) => {
 - 예를 들어, `.../asd`를 검색하는 경우
   - 1번 : 알맞게 `/asd`를 방문
   - 2번 : 둘 다 방문 -> 예상하지 못한 경로 탐색됨
+
+### 라우터에서 url의 마지막 string을 읽어올 수 있다.
+
+- `GET`방식의 `http`요청과 달리 `?` 없이 요청할 수 있다.
+
+```javascript
+router.use("/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  res.render("todo");
+});
+```
+
+- 위와 같이 라우터를 정의(`.../todo/leecoders`로 요청을 받도록 의도)한 뒤 `.../todo`까지만 요청하면 라우터가 탐색하지 못한다. -> 에러
