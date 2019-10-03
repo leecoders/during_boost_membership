@@ -48,6 +48,36 @@
 - 해결 : nodemon에 ignore를 줄 수 있다. `nodemon.json` 또는 `package.json`에 `nodemonConfig` 속성 추가 -> 파일이 재시작되지 않는다.
   - 공식 문서 : [링크](https://github.com/remy/nodemon)
 
-### CSS) 박스 엘리먼트에 `z-index`를 주면 안에 위치하는 엘리먼트들의 `z-index`는 상속된다.
+### 라우터 순서가 중요하다.
 
-- 그러므로 해당 박스 엘리먼트 외부에 더 높은 `z-index`를 갖는 요소가 있다면 자식 엘리먼트에 아무리 더 높은 `z-index`를 주더라도 아무 효과 없다.
+1번
+
+```javascript
+router.use("/asd", (req, res) => {
+  console.log("/asd");
+  res.json({ asd: "asd" });
+});
+
+router.use("/", (req, res) => {
+  console.log("/");
+  res.redirect("pages/admin");
+});
+```
+
+2번
+
+```javascript
+router.use("/", (req, res) => {
+  console.log("/");
+  res.redirect("pages/admin");
+});
+router.use("/asd", (req, res) => {
+  console.log("/asd");
+  res.json({ asd: "asd" });
+});
+```
+
+- 라우터 또한 미들웨어이기 때문에 순서대로 탐색한다.
+- 예를 들어, `.../asd`를 검색하는 경우
+  - 1번 : 알맞게 `/asd`를 방문
+  - 2번 : 둘 다 방문 -> 예상하지 못한 경로 탐색됨
