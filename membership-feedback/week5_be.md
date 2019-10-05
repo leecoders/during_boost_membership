@@ -131,3 +131,16 @@ router.use("/:id", (req, res) => {
 - 파라미터로 미들웨어를 순서대로 여러 개 전달하면 된다.
 - 전달한 미들웨어가 호출될 때 자동으로 `req`, `res`, `next`를 파라미터로 받는다.
 - 주의할 점은 미들웨어에서 `next()`를 호출해주어야 다음 미들웨어가 호출된다.
+
+### 스크립트 자동화 에러 문제 해결 과정
+
+1. crontab을 통해 매 분 sh파일을 실행하려고 했음
+2. 스크립트 파일을 생성
+3. `crontab -e`를 통해 `* * * * * /home/leecoders/works/pull_server_5min.sh`를 실행하도록 했음
+4. 동작 안함
+5. `* * * * * echo "hello world"`를 실행해봤음
+6. 아무 반응 없음 -> crontab은 별도의 shell을 통해 실행하기 때문에 현재 shell에서 결과를 확인할 수 없음
+7. 에러 로그를 확인해야겠다고 생각했음 -> `* * * * * /home/leecoders/works/pull_server_5min.sh >> /home/leecoders/works/pull_server_5min.log 2>&1`로 수정
+8. 디렉토리가 없다고 확인되었음 -> crontab은 상대 경로를 인식하지 못함
+9. 스크립트 파일을 수정함 `cd membership-todo` -> `cd /home/leecoders/works/membership-todo`
+10. 성공!
