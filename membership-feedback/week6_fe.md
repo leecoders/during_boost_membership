@@ -83,3 +83,17 @@ console.log(list);
 - 문제의 해결 : `for-of`문으로 해결(callback이 없음)
 
 - 회고 : 문제의 시작은 `함수형 프로그래밍`을 제대로 하지 못해서 `side effect`가 생길 만한 충분한 조건이 있었다고 생각한다. (`this`를 `forEach`내부적으로 접근하는 것은 함수형이 아님..) 그리고 생각보다 `for-of`가 유용하게 사용된다.
+
+### 모든 자식 요소 삭제하기
+
+```javascript
+while (this.todoContainer.hasChildNodes()) {
+  this.todoContainer.removeChild(this.todoContainer.firstChild);
+}
+```
+
+### 클로저 관련 이슈
+
+- 문제의 상황 : 상위 컴포넌트에서 이루어져야 할 상태 변화를 하위 컴포넌트에 의해(but, 하위 -> 상위 접근은 말이 안됨) 이루어지도록 하기 위해 handler 메서드를 하위 컴포넌트 생성 시 전달한다. 상위 컴포넌트의 handler 내에서 `constructor`에서 정의되지 않은 멤버 변수나 메서드를 사용하려 한다면 `null` 에러가 발생한다.
+  - `constructor`에서 정의되지 않은 멤버 변수나 메서드는 handler 메서드가 만들어지는 시점보다 앞인지 뒤인지 보장할 수 없다.(아마 뒤일 것)
+  - 하위 컴포넌트로 전달되는 시점에 정의되지 않은 변수나 메서드를 사용하는 handler 함수를 전달한 뒤에 해당 멤버 변수나 메서드에 값이 할당되더라도 전달되는 시점이 `closure`로 이미 보내졌기 때문에 하위 컴포넌트에 의해 handler가 호출되는 시점이 할당 이후라고 하더라도 `closure`에 의해 `null` 에러가 발생하는 것이다.
