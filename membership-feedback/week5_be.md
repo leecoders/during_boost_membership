@@ -144,3 +144,12 @@ router.use("/:id", (req, res) => {
 8. 디렉토리가 없다고 확인되었음 -> crontab은 상대 경로를 인식하지 못함
 9. 스크립트 파일을 수정함 `cd membership-todo` -> `cd /home/leecoders/works/membership-todo`
 10. 성공!
+
+### MySQL에 값을 insert할 때 모든 컬럼을 values에 채울 필요는 없다.
+
+```sql
+insert into TODO(TODO_ORDER, TODO_BELONG_LIST, TODO_CONTENT, TODO_ADDED_BY) values(1, 1, '123', 'admin');
+```
+
+- 어떤 컬럼에 값을 삽입할지만 명시하면 그에 맞는 값들만 values에 전달하면 된다.
+- 주의) 물론 PK는 필수적으로 컬럼, 값을 삽입해야 한다.
