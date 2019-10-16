@@ -138,4 +138,6 @@ useEffect(() => {
     - 처음 렌더링(마운트)될 때, `"effect"`
     - state 값이 업데이트될 때, `"cleanup"` -> `"effect"`
     - 컴포넌트가 언마운트될 때, `"cleanup"`
--
+
+### useContext
+- 
