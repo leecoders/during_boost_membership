@@ -12,3 +12,7 @@ const Logo = styled.div`
 background: url(${logoImage}) no-repeat 50% 50%;
 `
 ```
+
+### cross-env
+
+- 코드 내에서 파일 경로 지정을 쉽게 할 수 있다.
