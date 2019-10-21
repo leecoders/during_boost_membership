@@ -48,3 +48,8 @@ box.addEventListener("dragstart", e => {
   e.dataTransfer.setDragImage(img, 0, 0);
 });
 ```
+
+### react에서 input 태그에 value를 state로 지정하게 되면 직접 input 값을 변경할 수 없는 문제가 있다.
+
+- `value={state}`의 state가 변경되지 않기 때문이다.
+- 해결 : `value`를 지정할 때는 `onChange`에서 `setState`로 state를 변경해주어야 한다.
