@@ -33,3 +33,18 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 ```
+
+### `draggable="true"` 시 드래깅되는 이미지 없애기
+
+- 고스트 이미지(?)를 사용하여 안보이게 한다.
+
+```javascript
+const box = document.querySelector(".box");
+box.addEventListener("dragstart", e => {
+  console.log("start");
+  var img = new Image();
+  img.src =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=";
+  e.dataTransfer.setDragImage(img, 0, 0);
+});
+```
