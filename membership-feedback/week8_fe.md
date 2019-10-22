@@ -69,4 +69,4 @@ import "moment/locale/ko";
 moment.locale("ko");
 ```
 
-위와 같은 코드를 추가한다.
+locale 설정을 위해 위와 같은 코드를 상단에 추가한다.
