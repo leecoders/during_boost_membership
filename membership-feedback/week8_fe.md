@@ -53,3 +53,11 @@ box.addEventListener("dragstart", e => {
 
 - `value={state}`의 state가 변경되지 않기 때문이다.
 - 해결 : `value`를 지정할 때는 `onChange`에서 `setState`로 state를 변경해주어야 한다.
+
+### Moment.js와 Date 객체의 차이
+
+참고 : [링크](https://webinformation.tistory.com/95)
+
+- Moment.js는 자바스크립트에서 날짜 형식의 데이터를 파싱, 유효성 체크, 조작, 화면에 출력을 쉽게 할 수 있도록 도와주는 라이브러리
+- 물론 Vanilla.js 만을 이용해서 날짜를 표현할 수 있지만, 솔직히 아주 불편한 것은 기본이고 코드 또한 길어진다. (javascript에서 날짜 형식을 표현하거나 파싱을 하려면 매우 귀찮다.)
+- 또한 Time zone을 지원한다!
