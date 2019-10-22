@@ -61,4 +61,12 @@ box.addEventListener("dragstart", e => {
 
 - Moment.js는 자바스크립트에서 날짜 형식의 데이터를 파싱, 유효성 체크, 조작, 화면에 출력을 쉽게 할 수 있도록 도와주는 라이브러리
 - 물론 Vanilla.js 만을 이용해서 날짜를 표현할 수 있지만, 솔직히 아주 불편한 것은 기본이고 코드 또한 길어진다. (javascript에서 날짜 형식을 표현하거나 파싱을 하려면 매우 귀찮다.)
-- 또한 Time zone(locale 설정)을 지원한다!
+- 또한 Time zone, locale 설정을 지원한다!
+
+```javascript
+import moment from "moment";
+import "moment/locale/ko";
+moment.locale("ko");
+```
+
+위와 같은 코드를 추가한다.
