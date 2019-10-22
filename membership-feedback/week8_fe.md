@@ -56,6 +56,7 @@ box.addEventListener("dragstart", e => {
 
 ### Moment.js와 Date 객체의 차이
 
+참고 : [공식 문서](https://momentjs.com/)
 참고 : [링크](https://webinformation.tistory.com/95)
 
 - Moment.js는 자바스크립트에서 날짜 형식의 데이터를 파싱, 유효성 체크, 조작, 화면에 출력을 쉽게 할 수 있도록 도와주는 라이브러리
