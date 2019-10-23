@@ -70,3 +70,23 @@ moment.locale("ko");
 ```
 
 위와 같은 코드를 추가한다.
+
+### react에서 함수형 컴포넌트에서 최상단 function은 `async` -> error
+
+### react에서 `useEffect`를 `async` -> error
+
+- fetch data를 받아오기 위해 시도했으나.. 실패
+- 해결책 : 즉시 실행 함수로 감싸서 처리한다.
+
+```javascript
+useEffect(() => {
+  (async () => {
+    const result = await fetchCheckCookie();
+  })();
+}, [signinState]);
+```
+
+### reace에서 setState를 실행하더라도 react가 알아서 state가 변경되었을 때만 리렌더링 하도록 최적화되어 있다.
+
+- 하지만!! state가 객체인 경우 js에서 객체는 레퍼런스 비교이기 때문에 전과 후의 객체의 내용이 같더라도 react가 같은 객체로 판단하지 못한다.
+- 해결 : `JSON.stringify()`를 통해 비교해서 객체 내부 값이 달라졌을 때만 setState를 호출하도록 해야한다.
