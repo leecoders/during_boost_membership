@@ -140,3 +140,92 @@ SET SESSION transaction_isolation='SERIALIZABLE';
 - 같은 테이블 스키마를 가진 데이터를 다수의 데이터베이스에 분산하여 저장하는 방법을 의미한다.
 
 ### ORM을 사용할 때는 JS 스럽게 네이밍을 카멜케이스로!
+
+### JWT
+
+참고 : [링크](https://victorydntmd.tistory.com/116)
+
+- JWT는 사용자 정보를 JSON 객체에 담아 이를 암호화하고 해싱 작업을 거쳐 문자열 토큰을 생성하는 기술이다.
+- 클라이언트는 이 토큰을 HTTP Header에 추가하여 요청을 보냄으로써 사용자 인증을 얻게된다.
+- 장점 : 서버 부하를 일으키지 않으며, 해싱을 통해 데이터의 무결성을 보장하는 인증 방식이다.
+- 사용 예시 : 로그인 시 권한을 담은 JWT를 생성하여 브라우저에 넘겨주고, 이후에 추가적인 API 요청이 있을 때 토큰에 권한이 있는지 체크하는 기능을 고려할 수 있다.
+  - 세션의 기능을 JWT로 대신할 수 있는 것
+  - 흐름
+    - 사용자가 로그인을 하면 토큰을 생성해서 브라우저의 쿠키에 보관한다.
+    - 이 사용자가 어떤 API를 호출했을 때, 토큰이 있는지 확인해서 올바른 토큰이 있을 경우 API를 실행하고, 그렇지 않으면 실행하지 않는다.
+- 비밀키 모듈 생성
+
+```javascript
+const jwtObj = {};
+jwtObj.secret = "secret";
+module.exports = jwtObj;
+```
+
+- 로그인 요청 - 토큰 생성(`sign()`)
+
+```javascript
+const jwt = require("jsonwebtoken");
+const secretObj = require("../config/jwt");
+...
+
+    const token = jwt.sign({
+            name: "leecoders"
+        },
+        secretObj.secret,
+        {
+            expires: "5m"
+        });
+    ...
+    res.cookie("user", token);
+    res.json(...);
+```
+
+- 토큰 확인하기(`verify()`)
+
+```javascript
+...
+const token = req.cookies.user;
+const decoded = jwt.verify(token, secretObj.secret);
+if(decoded){
+    res.send("권한이 있어서 API 수행 가능")
+}
+else{
+    res.send("권한이 없습니다.")
+}
+```
+
+### CORS 이슈
+
+- fetch로 post요청을 위해 fe, be를 다른 서버(다른 url을 가짐)에 배포하고 fetch 요청이 이루어지기 때문에 cors 처리를 위해 모듈이 필요했다.
+  - 성공!
+- 그러나 쿠키가 req, res를 통해 전송되지 않는 문제가 있다.
+- 일단 fetch 옵션으로 `credentials: "include"`를 추가해야 했다.
+  - cors 에러 발생!
+- be단에서 cors에 옵션으로 fetch 요청을 하는 fe 서버를 whitelist에 추가해야 했다.
+
+(cors 옵션 모듈 파일 생성)
+
+```javascript
+const whitelist = ["http://localhost:3000"];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+};
+
+module.exports = corsOptions;
+```
+
+(cors에 옵션을 설정)
+
+```javascript
+const cors = require("cors");
+const corsOptions = require("./config/cors.js");
+...
+app.use(cors(corsOptions));
+```
