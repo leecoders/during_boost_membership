@@ -229,3 +229,8 @@ const corsOptions = require("./config/cors.js");
 ...
 app.use(cors(corsOptions));
 ```
+
+### sequelize에서 csv파일을 파싱해서 seed data를 만들기 위해 seeders/ 디렉토리 안에 있는 파일에서 다른 디렉토리에 있는 csv 파일의 상대 경로를 찾는 데 실패했다.
+
+- 해결 : `../` -> `./`
+- seeders/ 디렉토리 안에 있는 seed 생성 파일은 자기 위치가 `seeders` 폴더의 위치인 줄 안다.. 이유는 찾지 못했음
