@@ -1,0 +1,177 @@
+.list-wrapper {
+  position: relative;
+  display: inline-block;
+  top: 3.2rem;
+  width: 23rem;
+  height: 83%;
+  margin: 0.5rem;
+  background: #f2f2f2;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.list-head-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.list-title-container {
+  position: relative;
+  display: flex;
+  width: 23rem;
+  height: auto;
+  padding: 1rem 0 0 1rem;
+  margin-bottom: 0.5rem;
+  color: #24292e;
+  font-weight: bold;
+}
+
+.todo-container {
+  position: relative;
+  width: 23rem;
+  overflow-y: auto;
+}
+
+.todo-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.2rem;
+  border-radius: 0.8rem;
+  color: #24292e;
+  background: rgba(27, 31, 35, 0.15);
+  margin-right: 0.5rem;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.list-title {
+  display: inline-block;
+  cursor: pointer;
+}
+.list-title:hover {
+  border-bottom: 1px solid #797c7e;
+  opacity: 0.8;
+}
+.list-title:active {
+  border-bottom: 1px solid #797c7e;
+  opacity: 0.7;
+}
+
+.list-plus-button {
+  position: absolute;
+  top: 0.9rem;
+  right: 3.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url("../../images/plus.png") no-repeat 50% 50%;
+  background-size: 1.2rem 1.2rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.list-plus-button:hover {
+  opacity: 0.5;
+}
+.list-plus-button:active {
+  opacity: 0.4;
+}
+
+.list-delete-button {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-left: 0.5rem;
+  background: url("../../images/plus.png") no-repeat 50% 50%;
+  background-size: 1.3rem 1.3rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+  opacity: 0.7;
+}
+.list-delete-button:hover {
+  opacity: 0.5;
+}
+.list-delete-button:active {
+  opacity: 0.4;
+}
+
+.list-add-container {
+  display: none;
+  position: relative;
+  margin: 0 auto 1rem auto;
+  width: 20.5rem;
+  height: auto;
+  font-size: 1rem;
+  color: #24292e;
+  opacity: 0.7;
+}
+
+.list-add-textarea {
+  position: relative;
+  left: -0.55rem;
+  width: 20.5rem;
+  height: 2.5rem;
+  resize: vertical;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  font-weight: normal;
+  min-height: 1.5rem;
+}
+.list-add-textarea:focus {
+  border: 1px solid #f45252;
+}
+
+.list-add-button-container {
+  position: relative;
+  left: -0.55rem;
+  width: 21.5rem;
+  height: 2rem;
+}
+
+.list-add-add-button,
+.list-add-cancel-button {
+  position: relative;
+  display: inline-block;
+  width: 10.3rem;
+  height: 2.3rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(-180deg, #ff8787, #f45252 90%);
+  cursor: pointer;
+  text-align: center;
+  line-height: 2.3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.list-add-add-button:hover {
+  border: 1px solid #adb5bd;
+  background-image: linear-gradient(-180deg, #fa8787, #ef5252 90%);
+}
+.list-add-add-button:active {
+  border: 1px solid #adb5bd;
+  background-image: linear-gradient(-180deg, #ef5252, #ef5252 90%);
+}
+
+.list-add-cancel-button {
+  position: absolute;
+  right: 0;
+  color: #24292e;
+  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+}
+.list-add-cancel-button:hover {
+  border: 1px solid #adb5bd;
+  background-image: linear-gradient(-180deg, #f6fbfc, #eaf3f6 90%);
+}
+.list-add-cancel-button:active {
+  border: 1px solid #adb5bd;
+  background-image: linear-gradient(-180deg, #eaf3f6, #eaf3f6 90%);
+}

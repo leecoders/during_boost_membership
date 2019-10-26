@@ -1,0 +1,51 @@
+html {
+  font-size: 15px;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #111111;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: auto;
+  height: 100%;
+  margin: 0;
+  background: #34465c;
+  overflow: auto;
+}
+
+.outside {
+  z-index: 4;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+
+.body-area {
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+}
+
+.slide-container {
+  position: absolute;
+  top: 0;
+  right: -30rem;
+  width: 30rem;
+  height: 100%;
+  transition: right 0.3s;
+}
+
+.todo-wrapper.dragging {
+  position: fixed;
+  border: 3px solid rgba(255, 0, 0, 0.3);
+  opacity: 0.9;
+  pointer-events: none;
+  transform: rotate(-3deg);
+}

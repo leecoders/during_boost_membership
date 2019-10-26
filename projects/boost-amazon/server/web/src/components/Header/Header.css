@@ -1,0 +1,78 @@
+header {
+  z-index: 100;
+  position: fixed;
+  margin-top: 0;
+  width: 100%;
+  height: 4.5rem;
+  border-bottom: 1px solid #232f3e;
+  background: #232f3e;
+  color: #f08804;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.5);
+}
+
+header > span {
+  position: relative;
+  top: 0.4rem;
+  left: 0.4rem;
+  margin: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+header .menu-wrapper {
+  display: inline-block;
+  position: absolute;
+}
+
+header .header-menu {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-left: 1rem;
+  display: inline-block;
+  padding: 1.3rem 2rem 0rem 0.5rem;
+  height: 3.3rem;
+  border-right: solid 1px #666666;
+  cursor: pointer;
+}
+
+header .first-menu {
+  border-left: solid 1px #666666;
+  padding-left: 2rem;
+}
+
+header .user-wrapper {
+  display: inline-block;
+  position: absolute;
+  top: 0.6rem;
+  right: 1.4rem;
+  color: #fff;
+}
+
+header .user-wrapper span {
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
+  width: 13rem;
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+header .user-wrapper span p3 {
+  margin-right: 0.2rem;
+}
+
+header .user-wrapper #user-name-area {
+  font-weight: bold;
+}
+
+header .user-wrapper #user-button {
+  margin-left: 0.4rem;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: #232f3e url("../../images/user3.png") no-repeat 50% 50%;
+  background-size: 2.5rem 2.5rem;
+  outline: none;
+  cursor: pointer;
+}

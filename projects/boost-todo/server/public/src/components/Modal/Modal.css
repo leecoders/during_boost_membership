@@ -1,0 +1,46 @@
+.modal-wrapper {
+  z-index: 99;
+  position: absolute;
+  top: 10rem;
+  width: 25rem;
+  height: 15rem;
+  border: 1px solid #dee2e6;
+  background: #f1f3f5;
+  box-shadow: 1px 1px 10px 1px #495057;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message-container {
+  position: absolute;
+  top: 3rem;
+  font-size: 1.2rem;
+  width: 18rem;
+  height: 6rem;
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 1.5rem;
+  width: 10rem;
+  height: 4rem;
+  background: #ff6b6b;
+  border: 1px solid #dee2e6;
+  color: #ffffff;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.button-container:hover {
+  opacity: 0.9;
+}
+.button-container:active {
+  opacity: 1;
+}

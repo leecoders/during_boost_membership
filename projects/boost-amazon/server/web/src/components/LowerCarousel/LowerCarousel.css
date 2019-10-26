@@ -1,0 +1,147 @@
+.lower-li-area {
+  position: relative;
+  left: -46rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+  width: 91.4rem;
+  height: 28.5rem;
+}
+
+.lower-carousel-container {
+  position: absolute;
+  width: 70rem;
+  height: 28.5rem;
+  background: #fff;
+}
+
+.lower-carousel-left-button-area,
+.lower-carousel-right-button-area {
+  position: absolute;
+  height: 28.5rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lower-carousel-left-button-area {
+  left: 0;
+}
+
+.lower-carousel-right-button-area {
+  right: 0;
+}
+
+.lower-carousel-button {
+  width: 3.7rem;
+  height: 3.7rem;
+  outline: none;
+  border: none;
+  padding: 0;
+  background: url("../../images/arrow2.png") no-repeat 50% 50%;
+  background-size: 3.3rem 3.3rem;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.lower-carousel-button:active {
+  opacity: 1;
+}
+
+#lower-carousel-left-button {
+  transform: rotate(180deg);
+}
+
+.lower-carousel-center {
+  position: absolute;
+  left: 5rem;
+  width: 60rem;
+  height: 28.5rem;
+  z-index: 3;
+}
+
+.lower-img-container {
+  position: absolute;
+  overflow: hidden;
+  width: 60rem;
+  height: 28.5rem;
+  z-index: 3;
+}
+
+.lower-text-container {
+  position: absolute;
+  top: 2.5rem;
+  right: 18rem;
+  width: 28rem;
+  height: 25rem;
+}
+
+#lower-carousel-image-deque {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: -60rem;
+  width: 1020rem;
+  height: 28.5rem;
+  padding-inline-start: 0;
+  transition: transform 0.3s;
+}
+
+.lower-carousel-image {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+  width: 91.4rem;
+  height: 28.5rem;
+}
+
+.lower-text-title {
+  display: inline-flex;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+  height: 2rem;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.lower-text-head {
+  font-size: 28px;
+  margin: 1.5rem 0;
+}
+
+.lower-text-body {
+  font-size: 18px;
+}
+
+.lower-text-tail {
+  font-size: 18px;
+  margin: 1.5rem 0;
+  font-weight: bold;
+}
+
+.lower-text-tail > a {
+  color: #002f36;
+  text-decoration: none;
+}
+
+.lower-text-tail > a:hover {
+  color: #002f36;
+  text-decoration: underline;
+}
+
+.lower-carousel-triangle {
+  width: 18px;
+  height: 14px;
+  background: url("../../images/triangle.png") no-repeat 50% 50%;
+  background-size: 8px 13px;
+  transform: rotate(90deg);
+  border: none;
+  outline: none;
+}

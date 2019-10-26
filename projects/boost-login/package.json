@@ -1,0 +1,25 @@
+{
+  "name": "membership-login",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "better-sqlite3": "^5.4.3",
+    "cookie-parser": "~1.4.4",
+    "db.sqlite3": "^1.0.8",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "fetch": "^1.1.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "serve-favicon": "^2.5.0",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.1.0",
+    "uuid": "^3.3.3"
+  }
+}

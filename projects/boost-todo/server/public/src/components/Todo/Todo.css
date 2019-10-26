@@ -1,0 +1,61 @@
+.todo-wrapper {
+  position: relative;
+  margin: 0.5rem auto;
+  width: 20.5rem;
+  height: auto;
+  min-height: 2rem;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #24292e;
+  cursor: move;
+}
+
+.todo-text-image {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("../../images/text.png") no-repeat 50% 50%;
+  background-size: 1.5rem 1.5rem;
+  opacity: 0.7;
+}
+
+.todo-content-container {
+  position: relative;
+  left: 1.8rem;
+  width: 17.5rem;
+  height: auto;
+  word-break: break-all;
+}
+
+.todo-info-wrapper {
+  position: relative;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.added-by {
+  opacity: 0.5;
+}
+
+.todo-delete-button {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  background: url("../../images/plus.png") no-repeat 50% 50%;
+  background-size: 1rem 1rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+  opacity: 0.7;
+}
+.todo-delete-button:hover {
+  opacity: 0.5;
+}
+.todo-delete-button:active {
+  opacity: 0.4;
+}

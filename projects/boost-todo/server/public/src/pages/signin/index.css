@@ -1,0 +1,88 @@
+body {
+  background: #34465c;
+  color: #ff8787;
+  height: 100%;
+  width: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+section {
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.layer {
+  z-index: 5;
+}
+
+.outside {
+  z-index: 4;
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 4994px;
+  opacity: 0.5;
+  background-color: #000000;
+}
+
+.form-control {
+  border-radius: 1px;
+  height: 45px;
+}
+
+.form-control:focus {
+  border-color: #ff8787;
+  box-shadow: none;
+}
+
+.simple-sign-in-container {
+  width: 600px;
+  max-width: 100%;
+  margin: 80px auto;
+}
+
+.simple-sign-in-container h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 60px;
+}
+
+.simple-sign-in-container .btn-sign-in {
+  background-color: #ff8787;
+  color: #ffffff;
+  margin-top: 15px;
+  border-radius: 1px;
+  font-weight: bold;
+  font-size: 18px;
+  height: 50px;
+}
+
+.over-line {
+  margin-top: 10px;
+  border-top: 1px solid #9b9b9b;
+  text-align: center;
+}
+
+.sign-up-button {
+  margin-top: 0;
+  display: inline-block;
+  color: #8e8e8e;
+  text-align: center;
+  font-size: 12px;
+}
+
+.body-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

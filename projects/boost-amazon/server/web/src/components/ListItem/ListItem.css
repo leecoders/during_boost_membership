@@ -1,0 +1,86 @@
+.item-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.item-image {
+  position: relative;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  margin: auto 0;
+  border: 1px solid #dbdbdb;
+}
+
+.item-info {
+  position: absolute;
+  display: inline-block;
+  margin: 0.3rem 1rem;
+  width: 30rem;
+  height: 8rem;
+}
+.item-name {
+  position: relative;
+  margin: 0.2rem;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-style: bold;
+}
+.item-category {
+  position: relative;
+  margin: 0.2rem;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+}
+.item-summary {
+  position: relative;
+  margin: 0.2rem;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+}
+.item-info-title {
+  opacity: 0.4;
+}
+.item-info-content {
+  position: absolute;
+  left: 5rem;
+  word-break: break-all;
+}
+
+.item-delete-button-container {
+  position: absolute;
+  right: 0.2rem;
+  display: inline-block;
+  margin: 1rem 0;
+  width: 7rem;
+  height: 8rem;
+}
+
+.item-delete-button {
+  position: relative;
+  left: 1rem;
+  top: 0.5rem;
+  width: 70%;
+  height: 80%;
+  border: 2px solid #fff;
+  border-radius: 0.5rem;
+  background: #c92a2a url(../../images/trash.png) no-repeat 50% 50%;
+  background-size: 3rem 3rem;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.item-delete-button:hover {
+  opacity: 0.9;
+}
+
+.item-delete-button:active {
+  opacity: 1;
+}

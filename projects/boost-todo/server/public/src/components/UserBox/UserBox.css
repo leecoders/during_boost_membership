@@ -1,0 +1,61 @@
+.user-box-wrapper {
+  position: relative;
+  width: 99%;
+  height: 5rem;
+  background: #ffffff;
+  margin: 0.2rem auto;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+}
+
+.user-image-wrapper {
+  position: relative;
+  left: 1rem;
+  display: inline-block;
+  margin: 0.5rem 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  background: #000000 url("../../images/user.png") no-repeat 50% 50%;
+  background-size: 4rem 4rem;
+  border-radius: 1rem;
+}
+
+.user-info-container {
+  display: inline-block;
+  position: absolute;
+  margin: 0.5rem 0.5rem;
+  width: 90rem;
+  height: 4rem;
+}
+
+.user-info-wrapper {
+  display: inline-block;
+  width: 20rem;
+  flex-direction: column;
+  margin: 1rem 0;
+  padding: 0.3rem 1.2rem 0.3rem 0.8rem;
+  border-right: 1px solid #ced4da;
+  font-size: 1.2rem;
+}
+
+.user-info-wrapper.first {
+  margin-left: 1rem;
+  padding-left: 1.2rem;
+  border-left: 1px solid #ced4da;
+}
+
+.user-info-wrapper > span {
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.select-user-permission {
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: 7rem;
+  height: 1.8rem;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.2rem;
+  background: #ffffff url("../../images/select-button.png") no-repeat 95% 50%;
+}

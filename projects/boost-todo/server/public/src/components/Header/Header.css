@@ -1,0 +1,37 @@
+header {
+  z-index: 100;
+  position: fixed;
+  margin-top: 0;
+  width: 100%;
+  height: 3.2rem;
+  background: #ff8787;
+  color: #ffffff;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.5);
+}
+
+header > span {
+  position: relative;
+  top: 0.4rem;
+  left: 0.4rem;
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header .menu-button-wrapper {
+  display: inline-block;
+  position: absolute;
+  right: 0.5rem;
+  color: #fff;
+}
+
+#menu-button {
+  margin-left: 0.4rem;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: url("../../images/menu.png") no-repeat 50% 50%;
+  background-size: 1.6rem 1.6rem;
+  outline: none;
+  cursor: pointer;
+}
