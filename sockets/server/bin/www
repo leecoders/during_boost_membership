@@ -16,20 +16,12 @@ const port = normalizePort(process.env.PORT || "8000");
 app.set("port", port);
 
 /**
- * Create HTTP server.
+ * Create HTTP server ans define io's action.
  */
 
 const server = http.createServer(app);
 const io = require("socket.io")(server);
-io.on("connection", socket => {
-  console.log("a user connected");
-  socket.on("new message", msg => {
-    io.emit("chat message", { message: msg });
-  });
-  socket.on("disconnect", () => {
-    console.log("user disconnected");
-  });
-});
+require("../sockets")(io);
 
 /**
  * Listen on provided port, on all network interfaces.

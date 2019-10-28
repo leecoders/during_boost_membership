@@ -1,13 +1,36 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import io from "socket.io-client";
 
 function Room() {
+  const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    console.log("client is connected on socket");
+    socket.on("chat message", data => {
+      console.log(data);
+    });
+  }, []);
+
   return (
     <RoomWrapper>
       <MessageContainer></MessageContainer>
       <InputContainer>
-        <Input />
-        <Button>전송</Button>
+        <Input
+          value={text}
+          onChange={e => {
+            setText(e.target.value);
+          }}
+        />
+        <Button
+          onClick={() => {
+            socket.emit("new message", text);
+            setText("");
+          }}
+        >
+          전송
+        </Button>
       </InputContainer>
     </RoomWrapper>
   );
