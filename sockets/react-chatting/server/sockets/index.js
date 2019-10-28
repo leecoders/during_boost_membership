@@ -1,5 +1,6 @@
+let messages = require("../model/data.js");
+
 module.exports = io => {
-  let messages = [];
   io.on("connection", socket => {
     socket.on("new message", msg => {
       messages.push(msg);

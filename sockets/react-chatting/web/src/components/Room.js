@@ -10,13 +10,26 @@ function Room() {
 
   useEffect(() => {
     console.log("client is connected on socket");
+    getInitialData();
     socket.on("add message", data => {
       console.log(data);
       setMessages(data.messages);
+      const messageContainer = document.querySelector(".message-container");
+      messageContainer.scrollTop = messageContainer.scrollHeight;
     });
   }, []);
 
+  const getInitialData = async () => {
+    fetch("http://localhost:8000/initial-data", {
+      method: "GET"
+    })
+      .then(response => response.json())
+      .then(response => setMessages(response.messages))
+      .catch(error => console.error("Error:", error));
+  };
+
   const sendMessageToServer = () => {
+    if (text === "") return;
     socket.emit("new message", text);
     setText("");
     document.querySelector(".text-input").focus();
@@ -25,6 +38,7 @@ function Room() {
   return (
     <RoomWrapper>
       <MessageContainer
+        className="message-container"
         onClick={() => {
           document.querySelector(".text-input").focus();
         }}
@@ -57,7 +71,6 @@ const RoomWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
   font-size: 2rem;
 `;
 const MessageContainer = styled.div`
@@ -65,6 +78,7 @@ const MessageContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 90%;
+  overflow-y: scroll;
   font-size: 2rem;
 `;
 const InputContainer = styled.div`
@@ -88,11 +102,11 @@ const Input = styled.input`
   padding: 0 1rem;
 `;
 const Button = styled.div`
-  position: absolute;
+  position: relative;
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
+  left: 5rem;
   width: 8%;
   height: 5rem;
   line-height: 5rem;

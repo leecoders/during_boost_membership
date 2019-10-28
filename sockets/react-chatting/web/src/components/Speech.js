@@ -12,7 +12,7 @@ function Speech({ message }) {
 const SpeechWrapper = styled.div`
   position: relative;
   width: 100%;
-  margin-top: 1rem;
+  margin: 1rem 0;
   left: 1rem;
 `;
 const Bubble = styled.div`
