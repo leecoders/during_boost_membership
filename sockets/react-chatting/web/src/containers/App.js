@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Entrance from "../components/Entrance.js";
 import Room from "../components/Room.js";
 
 function App() {
   return (
     <AppWrapper className="App">
-      <Room />
+      <Entrance />
+      {/* <Room /> */}
     </AppWrapper>
   );
 }
