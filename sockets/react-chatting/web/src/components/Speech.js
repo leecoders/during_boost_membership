@@ -12,7 +12,7 @@ function Speech({ data }) {
 
 const SpeechWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 95%;
   margin: 1rem 0;
   left: 1rem;
 `;

@@ -10,12 +10,10 @@ function Room() {
   const [messages, setMessages] = useState();
 
   useEffect(() => {
-    (async () => {
-      await setInitialData();
-      socket.on("add message", data => {
-        setMessages(data);
-      });
-    })();
+    setInitialData();
+    socket.on("add message", data => {
+      setMessages(data);
+    });
   }, []);
   useEffect(() => {
     document.querySelector(
@@ -92,7 +90,7 @@ const Input = styled.input`
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
-  left: 3rem;
+  left: 2rem;
   width: 85%;
   height: 5rem;
   border: none;
@@ -106,7 +104,7 @@ const Button = styled.div`
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
-  left: 5rem;
+  left: 3.5rem;
   width: 8%;
   height: 5rem;
   line-height: 5rem;
@@ -115,6 +113,7 @@ const Button = styled.div`
   outline: none;
   text-align: center;
   border-radius: 0.4rem;
+  cursor: pointer;
 `;
 
 export default Room;
