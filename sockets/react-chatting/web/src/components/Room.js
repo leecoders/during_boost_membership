@@ -6,25 +6,28 @@ import Speech from "./Speech.js";
 function Room() {
   const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
   const [text, setText] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState();
 
   useEffect(() => {
-    console.log("client is connected on socket");
-    getInitialData();
+    setInitialData();
     socket.on("add message", data => {
-      console.log(data);
-      setMessages(data.messages);
-      const messageContainer = document.querySelector(".message-container");
-      messageContainer.scrollTop = messageContainer.scrollHeight;
+      setMessages(data);
     });
   }, []);
+  useEffect(() => {
+    document.querySelector(
+      ".message-container"
+    ).scrollTop = document.querySelector(".message-container").scrollHeight;
+  }, [messages]);
 
-  const getInitialData = async () => {
+  const setInitialData = async () => {
     fetch("http://localhost:8000/initial-data", {
       method: "GET"
     })
-      .then(response => response.json())
-      .then(response => setMessages(response.messages))
+      .then(res => res.json())
+      .then(res => {
+        setMessages(res);
+      })
       .catch(error => console.error("Error:", error));
   };
 
@@ -43,9 +46,10 @@ function Room() {
           document.querySelector(".text-input").focus();
         }}
       >
-        {messages.map((message, idx) => {
-          return <Speech key={idx} message={message} />;
-        })}
+        {messages &&
+          messages.data.map((data, idx) => {
+            return <Speech key={idx} data={data} />;
+          })}
       </MessageContainer>
       <InputContainer>
         <Input

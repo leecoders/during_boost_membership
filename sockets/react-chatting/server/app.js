@@ -8,6 +8,7 @@ const cors = require("cors");
 const usersRouter = require("./routes/users");
 
 const app = express();
+const data = require("./model/data.js");
 
 app.use(cors());
 app.use(logger("dev"));
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/initial-data", (req, res, next) => {
-  res.json({ messages: require("./model/data.js") });
+  res.json({ data: data });
 });
 app.use("/users", usersRouter);
 

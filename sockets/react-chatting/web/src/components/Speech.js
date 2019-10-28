@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function Speech({ message }) {
+function Speech({ data }) {
   return (
     <SpeechWrapper>
-      <Bubble>{message}</Bubble>
+      <Bubble>{data.message}</Bubble>
+      <Time>{data.date}</Time>
     </SpeechWrapper>
   );
 }
@@ -21,6 +22,14 @@ const Bubble = styled.div`
   padding: 1rem;
   background: #ffd43b;
   border-radius: 0.7rem;
+`;
+const Time = styled.div`
+  position: relative;
+  display: inline-block;
+  top: 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 1.4rem;
+  color: #ffffff;
 `;
 
 export default Speech;
