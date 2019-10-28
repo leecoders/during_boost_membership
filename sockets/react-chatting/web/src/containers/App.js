@@ -1,13 +1,14 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import Entrance from "../components/Entrance.js";
-import Room from "../components/Room.js";
+import EntrancePage from "pages/EntrancePage.js";
+import RoomPage from "pages/RoomPage.js";
 
 function App() {
   return (
-    <AppWrapper className="App">
-      <Entrance />
-      {/* <Room /> */}
+    <AppWrapper>
+      <Route exact path="/" component={EntrancePage} />
+      <Route path="/room/:number" component={RoomPage} />
     </AppWrapper>
   );
 }

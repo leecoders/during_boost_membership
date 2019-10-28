@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import Speech from "./Speech.js";
 import fetch from "../utils/fetch.js";
 
-function Room() {
+function Room({ roomNumber }) {
   const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
   const [text, setText] = useState("");
   const [messages, setMessages] = useState();
@@ -34,6 +34,9 @@ function Room() {
 
   return (
     <RoomWrapper>
+      <HeaderContainer>
+        <RoomNumberContainer>#{roomNumber}</RoomNumberContainer>
+      </HeaderContainer>
       <MessageContainer
         className="message-container"
         onClick={() => {
@@ -65,25 +68,45 @@ function Room() {
   );
 }
 
-const RoomWrapper = styled.div`
-  position: relative;
+const HeaderContainer = styled.div`
+  z-index: 99;
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 100%;
+  height: 5rem;
+  line-height: 5rem;
+  background: #343a40;
+  color: #ffffff;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.5);
+`;
+const RoomNumberContainer = styled.div`
+  position: relative;
+  left: 2rem;
+  font-size: 2.5rem;
+`;
+const RoomWrapper = styled.div`
+  position: fixed;
+  top: 5rem;
+  width: 100%;
+  height: calc(100% - 13rem);
   font-size: 2rem;
 `;
 const MessageContainer = styled.div`
   position: relative;
   margin: 0 auto;
   width: 100%;
-  height: 90%;
+  height: 100%;
   overflow-y: scroll;
   font-size: 2rem;
 `;
 const InputContainer = styled.div`
-  position: relative;
+  z-index: 99;
+  position: fixed;
   width: 100%;
-  height: 10%;
-  border-top: 1px solid #868e96;
+  height: 8rem;
+  bottom: 0;
+  background: #343a40;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.5);
 `;
 const Input = styled.input`
   position: relative;

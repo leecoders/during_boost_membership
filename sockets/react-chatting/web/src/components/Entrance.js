@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Room from "./Room.js";
 
-function Entrance() {
+function Entrance({ history }) {
+  const enterRoom = () => {
+    const input = document.querySelector(".room-code-input");
+    history.push("/room/" + input.value);
+    input.value = "";
+  };
+
   return (
     <EntranceWrapper>
       <RoomCodeFormContainer>
-        <RoomCodeInput placeholder="#Room Number"></RoomCodeInput>
-        <Button>입장</Button>
+        <RoomCodeInput
+          className="room-code-input"
+          placeholder="#Room Number"
+          onKeyPress={e => {
+            if (e.key === "Enter") {
+              enterRoom();
+            }
+          }}
+          autoFocus
+        ></RoomCodeInput>
+        <Button onClick={enterRoom}>입장</Button>
+        <FlashMessage></FlashMessage>
       </RoomCodeFormContainer>
     </EntranceWrapper>
   );
@@ -21,9 +36,10 @@ const EntranceWrapper = styled.div`
 `;
 const RoomCodeFormContainer = styled.div`
   position: relative;
+  margin: 0 auto;
+  width: 42rem;
   top: 50%;
   transform: translateY(-50%);
-  text-align: center;
 `;
 const RoomCodeInput = styled.input`
   position: relative;
@@ -38,7 +54,7 @@ const Button = styled.div`
   position: relative;
   display: inline-block;
   left: 1.5rem;
-  width: 5%;
+  width: 7rem;
   height: 5rem;
   line-height: 5rem;
   background: #adb5bd;
@@ -47,6 +63,13 @@ const Button = styled.div`
   text-align: center;
   border-radius: 0.4rem;
   cursor: pointer;
+`;
+const FlashMessage = styled.div`
+  position: relative;
+  width: 30rem;
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  color: red;
 `;
 
 export default Entrance;
