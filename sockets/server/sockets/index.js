@@ -1,8 +1,9 @@
 module.exports = io => {
+  let messages = [];
   io.on("connection", socket => {
-    console.log("a user connected");
     socket.on("new message", msg => {
-      io.emit("chat message", { message: msg });
+      messages.push(msg);
+      io.emit("add message", { messages: messages });
     });
     socket.on("disconnect", () => {
       console.log("user disconnected");

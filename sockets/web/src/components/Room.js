@@ -1,36 +1,53 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
+import Speech from "./Speech.js";
 
 function Room() {
   const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
   const [text, setText] = useState("");
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     console.log("client is connected on socket");
-    socket.on("chat message", data => {
+    socket.on("add message", data => {
       console.log(data);
+      setMessages(data.messages);
     });
   }, []);
 
+  const sendMessageToServer = () => {
+    socket.emit("new message", text);
+    setText("");
+    document.querySelector(".text-input").focus();
+  };
+
   return (
     <RoomWrapper>
-      <MessageContainer></MessageContainer>
+      <MessageContainer
+        onClick={() => {
+          document.querySelector(".text-input").focus();
+        }}
+      >
+        {messages.map((message, idx) => {
+          return <Speech key={idx} message={message} />;
+        })}
+      </MessageContainer>
       <InputContainer>
         <Input
+          className="text-input"
           value={text}
           onChange={e => {
             setText(e.target.value);
           }}
-        />
-        <Button
-          onClick={() => {
-            socket.emit("new message", text);
-            setText("");
+          onKeyPress={e => {
+            if (e.key === "Enter") {
+              sendMessageToServer();
+            }
           }}
-        >
-          전송
-        </Button>
+          autoFocus
+        />
+        <Button onClick={sendMessageToServer}>전송</Button>
       </InputContainer>
     </RoomWrapper>
   );
