@@ -114,7 +114,7 @@ const Input = styled.input`
   top: 50%;
   transform: translateY(-50%);
   left: 2rem;
-  width: 85%;
+  width: calc(95% - 8rem);
   height: 5rem;
   border: none;
   outline: none;
@@ -128,7 +128,7 @@ const Button = styled.div`
   top: 50%;
   transform: translateY(-50%);
   left: 3.5rem;
-  width: 8%;
+  width: 8rem;
   height: 5rem;
   line-height: 5rem;
   background: #adb5bd;
