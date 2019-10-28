@@ -19,6 +19,7 @@ const SpeechWrapper = styled.div`
 const Bubble = styled.div`
   position: relative;
   display: inline-block;
+  max-width: 70%;
   padding: 1rem;
   background: #ffd43b;
   border-radius: 0.7rem;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
 import Speech from "./Speech.js";
+import fetch from "../utils/fetch.js";
 
 function Room() {
   const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
@@ -9,10 +10,12 @@ function Room() {
   const [messages, setMessages] = useState();
 
   useEffect(() => {
-    setInitialData();
-    socket.on("add message", data => {
-      setMessages(data);
-    });
+    (async () => {
+      await setInitialData();
+      socket.on("add message", data => {
+        setMessages(data);
+      });
+    })();
   }, []);
   useEffect(() => {
     document.querySelector(
@@ -21,16 +24,9 @@ function Room() {
   }, [messages]);
 
   const setInitialData = async () => {
-    fetch("http://localhost:8000/initial-data", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(res => {
-        setMessages(res);
-      })
-      .catch(error => console.error("Error:", error));
+    const result = await fetch.fetchInitialData();
+    setMessages(result);
   };
-
   const sendMessageToServer = () => {
     if (text === "") return;
     socket.emit("new message", text);
