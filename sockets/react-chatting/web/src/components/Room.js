@@ -5,15 +5,18 @@ import Speech from "./Speech.js";
 import fetch from "../utils/fetch.js";
 
 function Room({ roomNumber }) {
-  const [socket, setSocket] = useState(io.connect("http://localhost:8000"));
+  const [socket, setSocket] = useState(io("http://localhost:8000"));
   const [text, setText] = useState("");
   const [messages, setMessages] = useState();
 
   useEffect(() => {
-    setInitialData();
-    socket.on("add message", data => {
-      setMessages(data);
-    });
+    (async () => {
+      socket.emit("joinroom", { roomNumber: roomNumber });
+      await setInitialData();
+      socket.on("add message", data => {
+        setMessages(data);
+      });
+    })();
   }, []);
   useEffect(() => {
     document.querySelector(
@@ -22,12 +25,12 @@ function Room({ roomNumber }) {
   }, [messages]);
 
   const setInitialData = async () => {
-    const result = await fetch.fetchInitialData();
+    const result = await fetch.fetchInitialData(roomNumber);
     setMessages(result);
   };
   const sendMessageToServer = () => {
     if (text === "") return;
-    socket.emit("new message", text);
+    socket.emit("new message", { roomNumber: roomNumber, message: text });
     setText("");
     document.querySelector(".text-input").focus();
   };
